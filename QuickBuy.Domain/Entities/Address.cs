@@ -11,5 +11,16 @@ namespace QuickBuy.Domain.Entities
         public string City { get; set; }
         public string Street { get; set; }
         public int Number { get; set; }
+
+        public override void Validate()
+        {
+            ClearValidationMessage();
+
+            if (string.IsNullOrEmpty(CEP))
+                AddValidationMessage("Address must have a CEP");
+            
+            if (Number == 0)
+                AddValidationMessage("Must have a address number defined");
+        }
     }
 }

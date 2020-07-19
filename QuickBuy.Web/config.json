@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "QuickBuyDB": "Server=localhost;Port=5432;Database=QuickBuy;User Id=postgres;Password=admin;"
+  }
+}
