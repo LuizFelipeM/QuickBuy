@@ -25,6 +25,13 @@ namespace QuickBuy.Repository.Contexts
             modelBuilder.ApplyConfiguration(new ProductConfig());
             modelBuilder.ApplyConfiguration(new AddressConfig());
 
+            modelBuilder.Entity<PaymentMethod>()
+                .HasData(
+                    new PaymentMethod { Id = 1, Name = "Boleto Bancário", Description = "Forma de pagamento Boleto Bancário" },
+                    new PaymentMethod { Id = 2, Name = "Cartão de Crédito", Description = "Forma de pagamento Cartão de Crédito" },
+                    new PaymentMethod { Id = 3, Name = "Depósito Bancário", Description = "Forma de pagamento Depósito Bancário" }
+                );
+
             base.OnModelCreating(modelBuilder);
         }
     }
