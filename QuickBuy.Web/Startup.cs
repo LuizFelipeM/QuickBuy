@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using QuickBuy.Repository.Contexts;
+using QuickBuy.Web.Initializers;
 
 namespace QuickBuy.Web
 {
@@ -29,6 +30,8 @@ namespace QuickBuy.Web
                         m => m.MigrationsAssembly("QuickBuy.Repository")
                     ).UseLazyLoadingProxies()
             );
+
+            IoCDI.Initializer(services);
 
             services.AddControllersWithViews();
             // In production, the Angular files will be served from this directory
