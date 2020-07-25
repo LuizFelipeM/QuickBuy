@@ -1,0 +1,61 @@
+<div class="text-center" aria-live="body" aria-atomic="true">
+  <form action="" class="form-signin">
+    <h1 class="h4 mb-4 login">Login do Cliente</h1>
+
+    <!-- <div
+      class="invalid-feedback mb-2"
+      *ngIf="email.invalid && (email.dirty || email.touched)"
+    >
+      <div *ngIf="email.errors.required">
+        Email precisa ser preenchido
+      </div>
+      <div *ngIf="email.errors.email">
+        Email inválido
+      </div>
+    </div> -->
+    <label for="inputEmail" class="sr-only">Email</label>
+    <input
+      email
+      required
+      type="email"
+      name="email"
+      id="inputEmail"
+      placeholder="Informe o seu email"
+      class="form-control mb-2"
+      [ngClass]="{
+        'is-invalid': email.invalid && (email.dirty || email.touched),
+        'is-valid': !email.invalid && !(email.dirty || email.touched)
+      }"
+      [(ngModel)]="user.email"
+      #email="ngModel"
+    />
+
+    <!-- <div
+      class="invalid-feedback mb-2"
+      *ngIf="password.invalid && (password.dirty || password.touched)"
+    >
+      <div *ngIf="password.errors.required">
+        A senha deve ser informada
+      </div>
+    </div> -->
+    <label for="inputPassword" class="sr-only">Senha</label>
+    <input
+      required
+      type="password"
+      id="inputPassword"
+      name="password"
+      placeholder="Senha"
+      class="form-control mb-4"
+      [ngClass]="{
+        'is-invalid': password.invalid && (password.dirty || password.touched),
+        'is-valid': !password.invalid && !(password.dirty || password.touched)
+      }"
+      [(ngModel)]="user.password"
+      #password="ngModel"
+    />
+
+    <button class="btn btn-primary btn-block" type="submit" (click)="login()">
+      Entrar
+    </button>
+  </form>
+</div>

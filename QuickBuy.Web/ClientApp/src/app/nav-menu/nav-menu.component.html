@@ -19,29 +19,17 @@
         class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
         [ngClass]="{ show: isExpanded }"
       >
-        <ul class="navbar-nav flex-grow">
+        <ul class="navbar-nav flex-grow" *ngFor="let route of routesPaths">
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark" [routerLink]="['/', route.path]">
+              {{ route.pathName }}
+            </a>
+          </li>
           <!-- <li
             class="nav-item"
             [routerLinkActive]="['link-active']"
             [routerLinkActiveOptions]="{ exact: true }"
-          >
-            <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/counter']"
-              >Counter</a
-            >
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/fetch-data']"
-              >Fetch data</a
-            >
-          </li> -->
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/product']">
-              Product
-            </a>
-          </li>
+          > -->
         </ul>
       </div>
     </div>
