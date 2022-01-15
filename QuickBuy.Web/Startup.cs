@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using QuickBuy.Repository.Configs;
 using QuickBuy.Repository.Contexts;
 using QuickBuy.Web.Initializers;
 
@@ -27,7 +28,7 @@ namespace QuickBuy.Web
             services.AddDbContext<QuickBuyContext>(options =>
                 options.UseNpgsql(
                         Configuration.GetConnectionString("QuickBuyDB"),
-                        m => m.MigrationsAssembly("QuickBuy.Repository")
+                        m => m.MigrationsAssembly(typeof(UserConfig).Assembly.FullName) //"QuickBuy.Repository"
                     ).UseLazyLoadingProxies()
             );
 
